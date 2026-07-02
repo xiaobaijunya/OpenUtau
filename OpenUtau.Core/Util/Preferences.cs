@@ -166,6 +166,8 @@ namespace OpenUtau.Core.Util {
             public bool DiffSingerTensorCache = true;
             public bool DiffSingerLangCodeHide = false;
             public bool SkipRenderingMutedTracks = false;
+            public bool RealTimeRender = false;
+            public bool AutoHideWaveform = true;
             public string Language = string.Empty;
             public string? SortingOrder = null;
             public List<string> RecentFiles = new List<string>();

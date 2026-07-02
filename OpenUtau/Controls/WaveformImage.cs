@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Media;
 using Avalonia.Media.Imaging;
 using OpenUtau.App.ViewModels;
+using OpenUtau.Core.Util;
 using ReactiveUI;
 using Serilog;
 
@@ -75,7 +76,8 @@ namespace OpenUtau.App.Controls {
                 Array.Clear(bitmapData, 0, bitmapData.Length);
                 var viewModel = (NotesViewModel?)DataContext;
                 if (viewModel != null && ShowWaveform &&
-                    viewModel.TickWidth > ViewConstants.PianoRollTickWidthShowDetails) {
+                    (!Preferences.Default.AutoHideWaveform ||
+                     viewModel.TickWidth > ViewConstants.PianoRollTickWidthShowDetails)) {
                     var project = viewModel.Project;
                     var part = viewModel.Part;
                     if (project != null && part != null && part.Mix != null) {

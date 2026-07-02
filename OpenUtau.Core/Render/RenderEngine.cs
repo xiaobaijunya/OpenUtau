@@ -259,7 +259,10 @@ namespace OpenUtau.Core.Render {
                     break;
                 }
                 source.SetSamples(task.Result.samples);
-                if (request.sources.All(s => s.HasSamples)) {
+                if (Preferences.Default.RealTimeRender) {
+                    request.part.SetMix(request.mix);
+                    DocManager.Inst.ExecuteCmd(new PartRenderedNotification(request.part));
+                } else if (request.sources.All(s => s.HasSamples)) {
                     request.part.SetMix(request.mix);
                     DocManager.Inst.ExecuteCmd(new PartRenderedNotification(request.part));
                 }
