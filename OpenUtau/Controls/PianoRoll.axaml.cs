@@ -1133,6 +1133,10 @@ namespace OpenUtau.App.Controls {
                             ViewModel.CurveViewModel.ClearSelect();
                             editState = new ExpSetValueState(control, ViewModel, this, descriptor);
                             break;
+                        case CurveTools.CurveLineTool:
+                            ViewModel.CurveViewModel.ClearSelect();
+                            editState = new ExpLineDrawState(control, ViewModel, this, descriptor);
+                            break;
                         case CurveTools.CurveEraserTool:
                             ViewModel.CurveViewModel.ClearSelect();
                             editState = new ExpResetValueState(control, ViewModel, this, descriptor, MouseButton.Left);
@@ -1523,6 +1527,14 @@ namespace OpenUtau.App.Controls {
                     case Key.D8: expSelector8?.SelectExp(); return true;
                     case Key.D9: expSelector9?.SelectExp(); return true;
                     case Key.D0: expSelector10?.SelectExp(); return true;
+                }
+            }
+            if (isCtrl && notesVm.ShowExpressions) {
+                switch (args.Key) {
+                    case Key.D1: curveVm.CurveToolIndex = 0; return true;
+                    case Key.D2: curveVm.CurveToolIndex = 1; return true;
+                    case Key.D3: curveVm.CurveToolIndex = 2; return true;
+                    case Key.D4: curveVm.CurveToolIndex = 3; return true;
                 }
             }
             #endregion

@@ -333,7 +333,7 @@ namespace OpenUtau.Core.Render {
                 }
             }
             // Mod plus
-            if (track.TryGetExpDescriptor(project, Format.Ustx.MODP, out var modp) && renderer.SupportsExpression(modp) && singer is ClassicSinger cSinger) {
+            if (renderer != null && track.TryGetExpDescriptor(project, Format.Ustx.MODP, out var modp) && renderer.SupportsExpression(modp) && singer is ClassicSinger cSinger) {
                 foreach (var phoneme in phonemes) {
                     var phonemeModp = phoneme.GetExpression(project, track, Format.Ustx.MODP).Item1;
                     if (phonemeModp == 0) {
@@ -422,7 +422,7 @@ namespace OpenUtau.Core.Render {
                     continue;
                 }
                 var curve = part.curves.FirstOrDefault(c => c.abbr == descriptor.abbr);
-                bool isSupported = renderer.SupportsExpression(descriptor);
+                bool isSupported = renderer != null && renderer.SupportsExpression(descriptor);
                 if (!isSupported) {
                     continue;
                 }

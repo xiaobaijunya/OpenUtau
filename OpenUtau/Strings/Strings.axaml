@@ -527,6 +527,10 @@ Warning: this option removes custom presets.</system:String>
     Hold Ctrl to select</system:String>
   <system:String x:Key="pianoroll.tool.eraser">Eraser Tool (3)</system:String>
   <system:String x:Key="pianoroll.tool.knife">Knife Tool (4)</system:String>
+  <system:String x:Key="pianoroll.tool.curveline">Curve Line Tool (Ctrl + 3)
+    Click and drag to draw a straight line
+    Hold Shift to lock value as horizontal line
+    Right click to reset</system:String>
   <system:String x:Key="pianoroll.tool.pitchline">Pitch Line Tool (Shift + 2)
     Left click to draw straight line
     Right click to reset
